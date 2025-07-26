@@ -87,6 +87,14 @@ export default function Home() {
 
       <div className="background-anim"></div>
       <Container>
+        <div className="social-buttons-top-left">
+          <Button variant="dark" href="https://instagram.com/rdvnkndrc" target="_blank" className="me-2 social-btn">
+            <i className="bi bi-instagram"></i>
+          </Button>
+          <Button variant="dark" href="https://x.com/kuroikenshi0" target="_blank" className="social-btn">
+            <i className="bi bi-twitter"></i>
+          </Button>
+        </div>
         <div className="card">
           <h1 className="title">Kadin Answers</h1>
           <Form onSubmit={handleSubmit}>
