@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import Head from 'next/head';
 import { Container, Form, Button, InputGroup } from 'react-bootstrap';
+import { FaInstagram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Home() {
   const [petition, setPetition] = useState('');
@@ -88,65 +90,51 @@ export default function Home() {
       <div className="background-anim"></div>
       <Container>
         <div className="social-buttons-top-left">
-          <Button variant="dark" href="https://instagram.com/rdvnkndrc" target="_blank" className="me-2 social-btn">
-            <i className="bi bi-instagram"></i>
+          <Button variant="dark" href="https://instagram.com/rdvnkndrc" target="_blank" className="social-btn">
+            <FaInstagram />
           </Button>
           <Button variant="dark" href="https://x.com/kuroikenshi0" target="_blank" className="social-btn">
-            <i className="bi bi-twitter"></i>
+            <FaXTwitter />
           </Button>
         </div>
         <div className="card">
           <h1 className="title">Kadin Answers</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-4">
-              <Form.Label>
-                <div className="icon-container">
-                  <i className="bi bi-stars"></i>
-                </div>
-                Petition
-              </Form.Label>
-              <InputGroup>
-                <Form.Control
-                  ref={petitionRef}
-                  type="text"
-                  placeholder="please answer kadin"
-                  value={isWritingSecret ? displayText : petition}
-                  onChange={handlePetitionChange}
-                  onKeyDown={handlePetitionKeyDown}
-                  required
-                />
-              </InputGroup>
+              <Form.Label>Petition</Form.Label>
+              <Form.Control
+                ref={petitionRef}
+                type="text"
+                placeholder="please answer kadin"
+                value={isWritingSecret ? displayText : petition}
+                onChange={handlePetitionChange}
+                onKeyDown={handlePetitionKeyDown}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-4">
-              <Form.Label>
-                <div className="icon-container">
-                  <i className="bi bi-question-circle"></i>
-                </div>
-                Question
-              </Form.Label>
-              <InputGroup>
-                <Form.Control
-                  type="text"
-                  placeholder="Write your question here"
-                  value={question}
-                  onChange={(e) => setQuestion(e.target.value)}
-                />
-              </InputGroup>
+              <Form.Label>Question</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Write your question here"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+              />
             </Form.Group>
 
             <div className="button-row">
-              <Button variant="primary" type="submit" className="w-50 me-3">
+              <Button variant="primary" type="submit">
                 Send question
               </Button>
-              <Button variant="danger" type="button" className="w-50 clear-main-btn" onClick={handleClearAll}>
+              <Button variant="secondary" type="button" className="clear-main-btn" onClick={handleClearAll}>
                 Clear
               </Button>
             </div>
           </Form>
 
           {answer && (
-            <div className="answer-box spooky-glow">
+            <div className="answer-box">
               <h4>Answer</h4>
               <p>{answer}</p>
             </div>
