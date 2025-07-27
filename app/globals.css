@@ -1,23 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
-html, body {
+html {
   height: 100%;
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  background: #0D0221;
-  color: #f8f9fa;
 }
 
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  flex-direction: column;
+  min-height: 100%;
   margin: 0;
+  font-family: 'Outfit', sans-serif;
   background: #0D0221;
   color: #f8f9fa;
+  overflow-y: auto; /* IMPORTANT: This enables scrolling */
   position: relative;
-  overflow: hidden;
 }
 
 .background-anim {
@@ -52,15 +48,18 @@ body {
 }
 
 .card {
-  background: rgba(18, 1, 48, 0.5);
-  border: 1px solid rgba(195, 55, 100, 0.3);
-  border-radius: 24px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background: rgba(13, 2, 33, 0.6);
+  border: 1px solid rgba(195, 55, 100, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 90%; /* Use percentage for responsiveness */
+  max-width: 600px;
+  box-shadow: 0 8px 32px 0 rgba(195, 55, 100, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 3rem !important;
-  width: 100%;
-  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  margin: 2rem 0; /* Add vertical margin */
 }
 
 .title {
@@ -187,15 +186,6 @@ body {
   line-height: 1.6;
 }
 
-.social-buttons-top-left {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-  display: flex;
-  gap: 0.75rem;
-}
-
 .social-btn {
   background-color: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -213,4 +203,183 @@ body {
 .social-btn:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   transform: translateY(-2px);
+}
+
+/* Header Styles */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(13, 2, 33, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(195, 55, 100, 0.2);
+}
+
+.main-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #a9a2c1;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(90deg, #C33764 0%, #5D3FD3 100%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #f0f2f5;
+}
+
+.nav-link:hover:after, .nav-link.active:after {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Align children (like .card) vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: flex-start; /* Align content to the top */
+  flex-grow: 1; /* Ensure main content takes up available space */
+  padding: 0 1rem; /* Add horizontal padding for smaller screens */
+  box-sizing: border-box;
+}
+
+/* How to Play Page Styles */
+.instructions {
+  color: #d1d5db;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.instructions h2 {
+  color: #C33764;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(195, 55, 100, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.instructions ol {
+  padding-left: 2rem;
+}
+
+.instructions li {
+  margin-bottom: 1rem;
+}
+
+.instructions code {
+  background: rgba(0, 0, 0, 0.4);
+  color: #C33764;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.go-back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.go-back-link a {
+  background: linear-gradient(90deg, #C33764 0%, #5D3FD3 100%);
+  color: #fff;
+  padding: 0.8rem 2.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(195, 55, 100, 0.4);
+}
+
+.go-back-link a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(195, 55, 100, 0.6);
+}
+
+/* Social Icons Top Left */
+.social-icons-top-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row; /* Align icons horizontally */
+  gap: 1rem;
+  z-index: 1001; /* Ensure it's above the header */
+}
+
+/* Footer Styles */
+.main-footer {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  margin-top: auto; /* Push footer to the bottom */
+  text-align: center;
+  background: rgba(13, 2, 33, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(195, 55, 100, 0.2);
+}
+
+.footer-text {
+  color: #a9a2c1;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .card {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .main-header {
+    padding: 0.8rem 0;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .social-icons-top-left {
+    top: 15px;
+    left: 15px;
+  }
+
+  .form-control,
+  .btn {
+    font-size: 0.95rem;
+  }
 }

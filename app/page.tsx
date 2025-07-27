@@ -3,8 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Head from 'next/head';
 import { Container, Form, Button, InputGroup } from 'react-bootstrap';
-import { FaInstagram } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+
 
 export default function Home() {
   const [petition, setPetition] = useState('');
@@ -89,14 +88,7 @@ export default function Home() {
 
       <div className="background-anim"></div>
       <Container>
-        <div className="social-buttons-top-left">
-          <Button variant="dark" href="https://instagram.com/rdvnkndrc" target="_blank" className="social-btn">
-            <FaInstagram />
-          </Button>
-          <Button variant="dark" href="https://x.com/kuroikenshi0" target="_blank" className="social-btn">
-            <FaXTwitter />
-          </Button>
-        </div>
+
         <div className="card">
           <h1 className="title">Kadin Answers</h1>
           <Form onSubmit={handleSubmit}>
